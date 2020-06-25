@@ -1,0 +1,16 @@
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias vi='vim'
+alias v='vim'
+alias config='/usr/bin/git --git-dir=/home/griffin/.cfg/ --work-tree=/home/griffin'
+alias neofetch='neofetch --config ~/.neofetch'
+alias bashrc='vim ~/.bashrc; source ~/.bashrc'
+alias vimrc='vim ~/.vimrc;' 
+alias q='exit'
+
+alias wttr='curl wttr.in/Penticton'
+alias glog='git log --all --graph --decorate'
+alias gstat='git status'
+alias ga='git add -A'
+alias gc='git commit'
+
