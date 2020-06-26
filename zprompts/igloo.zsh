@@ -297,26 +297,14 @@ prompt_igloo_setup() {
   local seg_connect_bar_down="${newline}${nord3}${CONNECTBAR_DOWN}${c_reset}"
   local seg_exit_status="%(?..${nord3}[%(?.${nord9}.${nord11})%?${nord3}]${SPLITBAR}${c_reset})"
   local seg_jobs="%(1j.${nord3}[${nord9}%j${nord3}]${c_reset}%(?.${nord3}${SPLITBAR}${c_reset}.).)"
+
   # removed newline from working dir, since i want venv to be on the same line
   local seg_working_dir="${nord3}[${nord9}%~${nord3}]${c_reset}"
-  #
-  #
-  #
-  #
-  # change time to 12hr instead of 24
-  local seg_time="${nord3}[${nord9}%D{%h:%M:%S}${nord3}]${newline}${CONNECTBAR_UP}${c_reset}"
+  # use system locale defaults for date/time
+  local seg_time="${nord3}[${nord9}%D{%c}${nord3}]${newline}${CONNECTBAR_UP}${c_reset}"
   if [[ $IGLOO_ZSH_PROMPT_THEME_HIDE_TIME == true ]]; then
     seg_time=
   fi
-  #
-  #
-  #
-  #
-  #
-  #
-  #
-  #
-
   local is_remote_ssh seg_frag_host seg_frag_user seg_user_host
   [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]] && is_remote_ssh=true
   if [[ $IGLOO_ZSH_PROMPT_THEME_ALWAYS_SHOW_USER == true || $is_remote_ssh == true ]]; then

@@ -5,7 +5,7 @@
 fpath=("$HOME/.zprompts" "$fpath[@]")
 
 
-# Start tmux in every nonlogin shell
+# Start tmux in every shell
 [[ $- != *i* ]] && return
 [[ -z "$TMUX" ]] && exec tmux
 
