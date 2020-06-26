@@ -1,15 +1,9 @@
 # ~/.zshrc
 # Author: Griffin Brome (https://github.com/Griffin-Brome)
 
-# load line completion and prompts
-autoload -Uz compinit promptinit
-compinit
-
 # load in custom user themes
 fpath=("$HOME/.zprompts" "$fpath[@]")
 
-promptinit
-prompt igloo
 
 # Start tmux in every nonlogin shell
 [[ $- != *i* ]] && return
@@ -41,5 +35,17 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# user defined functions
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo "(`basename \"$VIRTUAL_ENV\"`)"
+}
+
 # allow for zsh to detect git metadata (for prompts)
 source ~/bin/git-prompt.sh
+
+# load line completion and prompts
+autoload -Uz compinit promptinit
+compinit
+promptinit
+prompt igloo
+
