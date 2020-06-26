@@ -297,12 +297,25 @@ prompt_igloo_setup() {
   local seg_connect_bar_down="${newline}${nord3}${CONNECTBAR_DOWN}${c_reset}"
   local seg_exit_status="%(?..${nord3}[%(?.${nord9}.${nord11})%?${nord3}]${SPLITBAR}${c_reset})"
   local seg_jobs="%(1j.${nord3}[${nord9}%j${nord3}]${c_reset}%(?.${nord3}${SPLITBAR}${c_reset}.).)"
-  local seg_working_dir="${nord3}[${nord9}%~${nord3}]${newline}${c_reset}"
-
-  local seg_time="${nord3}[${nord9}%D{%H:%M:%S}${nord3}]${newline}${CONNECTBAR_UP}${c_reset}"
+  # removed newline from working dir, since i want venv to be on the same line
+  local seg_working_dir="${nord3}[${nord9}%~${nord3}]${c_reset}"
+  #
+  #
+  #
+  #
+  # change time to 12hr instead of 24
+  local seg_time="${nord3}[${nord9}%D{%h:%M:%S}${nord3}]${newline}${CONNECTBAR_UP}${c_reset}"
   if [[ $IGLOO_ZSH_PROMPT_THEME_HIDE_TIME == true ]]; then
     seg_time=
   fi
+  #
+  #
+  #
+  #
+  #
+  #
+  #
+  #
 
   local is_remote_ssh seg_frag_host seg_frag_user seg_user_host
   [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]] && is_remote_ssh=true
@@ -318,7 +331,7 @@ prompt_igloo_setup() {
   # if a python virtualenv is activated, then show it
   local seg_venv
   if [[ -n  $VIRTUAL_ENV ]]; then
-      seg_venv="${SPLITBAR}[(`basename \"$VIRTUAL_ENV\"`)]"
+      seg_venv="${nord3}${SPLITBAR}[${nord7}`basename \"$VIRTUAL_ENV\"`${nord3}]${c_reset}"
   fi
 
   local seg_git
@@ -329,7 +342,7 @@ prompt_igloo_setup() {
     seg_git=" ${nord3}${SPLITBAR_GIT}[${nord8}$(__git_ps1 "%s")${nord3}]${SPLITBAR}[${nord8}${git_commit_short}${nord3}]${c_reset}${newline}"
   fi
 
-  PROMPT="${seg_connect_bar_down}${seg_user_host}${seg_jobs}${seg_exit_status}${seg_time}${seg_working_dir}${seg_venv}${seg_git}${seg_arrow}"
+  PROMPT="${seg_connect_bar_down}${seg_user_host}${seg_jobs}${seg_exit_status}${seg_time}${seg_working_dir}${seg_venv}${newline}${seg_git}${seg_arrow}"
 }
 
 prompt_igloo_setup "$@"
