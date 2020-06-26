@@ -11,5 +11,8 @@
     ~/bin:
         path: bin/
         create: true
-
-
+    ~/.zshrc: zshrc
+    ~/.zprompts:
+        path: zprompts/
+        create: true
+    ~/.alacritty.yml: alacritty
