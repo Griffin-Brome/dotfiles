@@ -8,8 +8,6 @@ compinit
 # load in custom user themes
 fpath=("$HOME/.zprompts" "$fpath[@]")
 
-promptinit
-prompt igloo
 
 # Start tmux in every nonlogin shell
 [[ $- != *i* ]] && return
@@ -43,3 +41,15 @@ alias l='ls -CF'
 
 # allow for zsh to detect git metadata (for prompts)
 source ~/bin/git-prompt.sh
+
+# plugins
+source ~/.zplug/init.zsh
+
+# spaceship prompt theme
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
+
+# end plugins
+zplug load --verbose
+
+# always load prompts last
+promptinit
