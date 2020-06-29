@@ -330,7 +330,7 @@ prompt_igloo_setup() {
     seg_git=" ${nord3}${SPLITBAR_GIT}[${nord8}$(__git_ps1 "%s")${nord3}]${SPLITBAR}[${nord8}${git_commit_short}${nord3}]${c_reset}${newline}"
   fi
 
-  PROMPT="${seg_connect_bar_down}${seg_user_host}${seg_jobs}${seg_exit_status}${seg_time}${seg_working_dir}${seg_venv}${newline}${seg_git}${seg_arrow}"
+  PROMPT="${seg_connect_bar_down}${seg_user_host}${seg_jobs}${seg_exit_status}${seg_working_dir}${seg_venv}${newline}${seg_git}${seg_arrow}"
 }
 
 prompt_igloo_setup "$@"
