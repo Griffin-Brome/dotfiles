@@ -4,11 +4,6 @@
 # load in custom user themes
 fpath=("$HOME/.zprompts" "$fpath[@]")
 
-
-# Start tmux in every shell
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -40,6 +35,17 @@ function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo "(`basename \"$VIRTUAL_ENV\"`)"
 }
 
+# additions to $path
+PATH=/opt/firefox/firefox:$PATH # firefox dev edition
+
+# remember previous commands
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
+# load xcape bindings in the case it wasn't at boot
+source ~/bin/vim_capslock_remap.sh
 # allow for zsh to detect git metadata (for prompts)
 source ~/bin/git-prompt.sh
 
