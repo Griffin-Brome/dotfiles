@@ -199,6 +199,10 @@ Plug 'arcticicestudio/nord-vim'
 " ctrlp fuzzy file search
 Plug 'ctrlpvim/ctrlp.vim'
 
+" vim-gitgutter shows which lines have been changed, and integrates
+" with airline nicely
+Plug 'airblade/vim-gitgutter'
+
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
@@ -211,13 +215,6 @@ map <silent> <C-e> :NERDTreeToggle<CR>
 " ctrl+p invokes CtrlP
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
-
-" remove C-w from split movement
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 
 "------------------------------------------------------------
 " Extra functionality re. plugins
