@@ -159,6 +159,9 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+" use mouse to resize splits
+set ttymouse=sgr
+
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
 " for movement, rather than using more efficient movement commands, is also a
@@ -208,6 +211,13 @@ map <silent> <C-e> :NERDTreeToggle<CR>
 " ctrl+p invokes CtrlP
   let g:ctrlp_map = '<c-p>'
   let g:ctrlp_cmd = 'CtrlP'
+
+" remove C-w from split movement
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
 
 "------------------------------------------------------------
 " Extra functionality re. plugins
