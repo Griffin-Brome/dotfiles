@@ -16,3 +16,4 @@
         path: zprompts/
         create: true
     ~/.alacritty.yml: alacritty
+    ~/.config/nvim/init.vim: init.vim

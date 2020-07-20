@@ -18,25 +18,17 @@ fi
 
 
 # user defined aliases
-alias l.='ls -d .* --color=auto'
-alias ll='ls -l --color=auto'
-alias v='vim'
-alias vi='vim'
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 alias glog='git log --all --graph --decorate'
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'
-alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
 
 # user defined functions
-function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo "(`basename \"$VIRTUAL_ENV\"`)"
-}
 
-# additions to $path
-PATH=/opt/firefox/firefox:$PATH # firefox dev edition
 
 # remember previous commands
 HISTFILE=~/.zsh_history
@@ -50,8 +42,45 @@ source ~/bin/vim_capslock_remap.sh
 source ~/bin/git-prompt.sh
 
 # load line completion and prompts
-autoload -Uz compinit promptinit
+autoload -Uz compinit 
 compinit
-promptinit
-prompt igloo
 
+
+
+# check if starship is installed 
+if ! [ -e /usr/local/bin/starship ]; then
+    curl -fsSL https://starship.rs/install.sh | bash # install latest starship version
+fi
+eval "$(starship init zsh)"
+export STARSHIP_CONFIG=~/.starship # move starship config file to $HOME
+
+# use vim bindings in terminal
+bindkey -v
+
+# plugins
+# I use zplug to manage these
+
+source ~/.zplug/init.zsh
+
+# syntax highlighting
+zplug "zdharma/fast-syntax-highlighting", defer:2
+
+# autosuggestions as you type
+zplug "zsh-users/zsh-autosuggestions"
+
+# ctrl-space accepts the current suggestion, I try to do this with all my programs
+bindkey '^ ' autosuggest-accept
+
+# colored man pages
+zplug "ael-code/zsh-colored-man-pages"
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load 

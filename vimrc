@@ -1,18 +1,8 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
+" URL: github.com/Griffin-Brome/dotfiles
+" Authors: Griffin Brome
+" Description: My vim/neovim configuration, this is still a work in progress. 
  
-"------------------------------------------------------------
-" Features {{{1
-"
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
- 
-" Set 'nocompatible' to ward off unexpected things that your distro might
-" have made, as well as sanely reset options when re-sourcing .vimrc
+" disable VI emulation
 set nocompatible
  
 " Attempt to determine the type of a file based on its name and possibly its
@@ -112,10 +102,6 @@ set t_vb=
 " Enable use of the mouse for all modes
 set mouse=a
  
-" Set the command window height to 2 lines, to avoid many cases of having to
-" "press <Enter> to continue"
-set cmdheight=2
- 
 " Display line numbers on the left
 set number
  
@@ -159,8 +145,11 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
-" use mouse to resize splits
-set ttymouse=sgr
+" use mouse to resize splits, this isn't needed for neovim (mouse integration
+" out of box
+if !has('nvim')
+    set ttymouse=sgr
+endif
 
 " Try to prevent bad habits like using the arrow keys for movement. This is
 " not the only possible bad habit. For example, holding down the h/j/k/l keys
@@ -180,6 +169,8 @@ inoremap <Down>  <ESC>:echoe "Use j"<CR>
 
 command FF !firefox %
  
+
+
 "------------------------------------------------------------
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
@@ -192,6 +183,9 @@ Plug 'preservim/nerdtree'
 " Vim-airline status line & themes
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" devicons for nerdtree
+Plug 'ryanoasis/vim-devicons'
 
 " Nord theme
 Plug 'arcticicestudio/nord-vim'
@@ -221,6 +215,7 @@ map <silent> <C-e> :NERDTreeToggle<CR>
 "
 " Close vim if the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 "------------------------------------------------------------
 " aesthetics 
 colorscheme nord
