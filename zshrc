@@ -54,8 +54,8 @@ fi
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/.starship # move starship config file to $HOME
 
-# use vim bindings in terminal
-bindkey -v
+# use emacs bindings in terminal
+bindkey -e
 
 # plugins
 # I use zplug to manage these
@@ -73,6 +73,9 @@ bindkey '^ ' autosuggest-accept
 
 # colored man pages
 zplug "ael-code/zsh-colored-man-pages"
+
+# dracula theme
+zplug "dracula/zsh", as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

@@ -29,6 +29,9 @@ Plug 'ryanoasis/vim-devicons'
 " Nord theme
 Plug 'arcticicestudio/nord-vim'
 
+" Dracula theme
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 " ctrlp fuzzy file search
 Plug 'ctrlpvim/ctrlp.vim'
 
