@@ -1,6 +1,6 @@
 " URL: github.com/Griffin-Brome/dotfiles
 " Authors: Griffin Brome
-" Description: My vim/neovim configuration, this is still a work in progress. 
+" Description: My neovim configuration
  
 " PLUGINS ============================================================
 
@@ -14,24 +14,15 @@ endif
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
-" Declare the list of plugins.
+" Declare the list of plugins ---------------------------------------
 
-" NERDTree directory browser
-Plug 'preservim/nerdtree'
-
-" Vim-airline status line & themes
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" devicons for nerdtree
-Plug 'ryanoasis/vim-devicons'
-
-" ctrlp fuzzy file search
-Plug 'ctrlpvim/ctrlp.vim'
-
-" vim-gitgutter shows which lines have been changed, and integrates
-" with airline nicely
-Plug 'airblade/vim-gitgutter'
+Plug 'preservim/nerdtree' " NERDTree directory browser
+Plug 'vim-airline/vim-airline' " Vim-airline status line 
+Plug 'vim-airline/vim-airline-themes' " & themes
+Plug 'ryanoasis/vim-devicons' " devicons for nerdtree
+Plug 'flazz/vim-colorschemes' " Colourscheme pack
+Plug 'ctrlpvim/ctrlp.vim' " ctrlp fuzzy file search
+Plug 'airblade/vim-gitgutter' " vim-gitgutter shows which lines have been changed, and integrates with airline nicely
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -53,7 +44,8 @@ let g:airline_powerline_fonts = 1
 
 " AESTHETICS ========================================================
 
-colorscheme default
+colorscheme wombat256
+let g:airline_theme='wombat'
 
 " SPACES & TABS =====================================================
 
@@ -70,6 +62,9 @@ set number
 " Highlint corrisponding [],{},()
 set showmatch
 
+"The above causes a visual effect of the cursor 'jumping' back, this fixes that
+set matchtime=0
+
 " Open splits in a way more similar to other editors
 set splitbelow
 set splitright
@@ -77,7 +72,7 @@ set splitright
 " SEARCH ===========================================================
 
 " Get rid of highlights from search
-nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>\ :nohlsearch<CR>
 
 " MOVEMENT =========================================================
 
@@ -86,4 +81,3 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
