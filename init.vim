@@ -50,9 +50,9 @@ let g:airline_theme='wombat'
 " SPACES & TABS =====================================================
 
 " By default, all tabs should be 4 spaces
-set tabstop=4 " <TAB> character when read from a file
-set softtabstop=4 " When pressing the <TAB> key on the keyboard
-set expandtab " Expand tabs into spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab 
 
 " UI CONFIG =========================================================
 
