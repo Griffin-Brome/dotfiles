@@ -1,19 +1,10 @@
 - clean: ['~']
 
 - link:
-    ~/.profile: profile
-    ~/.bashrc: bashrc
-    ~/.bash_logout: bash_logout
-    ~/.bash_aliases: bash_aliases
     ~/.gitconfig: gitconfig
-    ~/.tmux.conf: tmux.conf
-    ~/.vimrc: vimrc
+    ~/.tmux.conf: tmux.conf 
     ~/bin:
         path: bin/
         create: true
     ~/.zshrc: zshrc
-    ~/.zprompts:
-        path: zprompts/
-        create: true
-    ~/.alacritty.yml: alacritty
     ~/.config/nvim/init.vim: init.vim

@@ -26,12 +26,6 @@ Plug 'vim-airline/vim-airline-themes'
 " devicons for nerdtree
 Plug 'ryanoasis/vim-devicons'
 
-" Nord theme
-Plug 'arcticicestudio/nord-vim'
-
-" Dracula theme
-Plug 'dracula/vim', { 'as': 'dracula' }
-
 " ctrlp fuzzy file search
 Plug 'ctrlpvim/ctrlp.vim'
 
@@ -59,7 +53,7 @@ let g:airline_powerline_fonts = 1
 
 " AESTHETICS ========================================================
 
-colorscheme nord
+colorscheme default
 
 " SPACES & TABS =====================================================
 
