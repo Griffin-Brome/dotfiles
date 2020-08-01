@@ -22,8 +22,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# load xcape bindings in the case it wasn't at boot
-source ~/bin/vim_capslock_remap.sh
 
 # load line completion 
 autoload -Uz compinit 
@@ -56,8 +54,6 @@ fi
 zplug load 
 
 # Plugin configuration
-
-SPACESHIP_VENV_SYMBOL=" "
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
