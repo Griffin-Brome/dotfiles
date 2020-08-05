@@ -9,7 +9,6 @@ fi
 # Author: Griffin Brome (https://github.com/Griffin-Brome)
 
 # user defined aliases
-alias vim='nvim'
 alias ls='ls --color=auto'
 alias la='ls -A'
 

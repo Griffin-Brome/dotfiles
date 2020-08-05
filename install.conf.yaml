@@ -8,3 +8,4 @@
         create: true
     ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: init.vim
+    ~/.vimrc: vimrc
