@@ -17,8 +17,8 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins ---------------------------------------
 
 Plug 'preservim/nerdtree' " NERDTree directory browser
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible' " Sane defaults for vim
+Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'vim-airline/vim-airline' " Vim-airline status line 
 Plug 'vim-airline/vim-airline-themes' " & themes
 Plug 'ryanoasis/vim-devicons' " devicons for nerdtree
