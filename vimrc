@@ -22,7 +22,8 @@ Plug 'tpope/vim-fugitive' " Git wrapper
 Plug 'vim-airline/vim-airline' " Vim-airline status line 
 Plug 'vim-airline/vim-airline-themes' " & themes
 Plug 'ryanoasis/vim-devicons' " devicons for nerdtree
-Plug 'flazz/vim-colorschemes' " Colourscheme pack
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 Plug 'ctrlpvim/ctrlp.vim' " ctrlp fuzzy file search
 Plug 'airblade/vim-gitgutter' " vim-gitgutter shows which lines have been changed, and integrates with airline nicely
 
@@ -44,10 +45,19 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Allow airline to use powerline fonts
 let g:airline_powerline_fonts = 1
 
+" Show buffers in airline
+let g:airline#extensions#tabline#enabled = 1
+
 " AESTHETICS ========================================================
 
-colorscheme wombat256
-let g:airline_theme='wombat'
+" https://github.com/tmux/tmux/issues/1246
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+colorscheme gruvbox
+set bg=dark
 
 " SPACES & TABS =====================================================
 
@@ -71,8 +81,12 @@ set matchtime=0
 set splitbelow
 set splitright
 
+" Show horizontal line
+set cursorline
 " SEARCH ===========================================================
 
+" Show search highlights as you search
+set hlsearch
 " Get rid of highlights from search
 nnoremap <leader>\ :nohlsearch<CR>
 

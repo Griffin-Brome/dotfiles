@@ -11,9 +11,7 @@ fi
 # user defined aliases
 alias ls='ls --color=auto'
 alias la='ls -A'
-
 # user defined functions
-
 
 # remember previous commands
 HISTFILE=~/.zsh_history
@@ -56,3 +54,5 @@ zplug load
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Make terminal play nice with tmux
+TERM="xterm-256color"
