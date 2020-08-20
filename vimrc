@@ -1,3 +1,9 @@
+" __     _ ___ __  __ ____   ____
+" \ \   / |_ _|  \/  |  _ \ / ___|
+"  \ \ / / | || |\/| | |_) | |
+"   \ V /  | || |  | |  _ <| |___
+"    \_/  |___|_|  |_|_| \_\\____|
+
 " URL: github.com/Griffin-Brome/dotfiles
 " Authors: Griffin Brome
 " Description: My (neo)vim configuration
