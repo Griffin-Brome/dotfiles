@@ -17,6 +17,7 @@ fi
 # user defined aliases
 alias ls='ls --color=auto'
 alias la='ls -A'
+alias vim='nvim'
 # user defined functions
 
 # remember previous commands
@@ -29,7 +30,6 @@ setopt appendhistory
 # load line completion 
 autoload -Uz compinit 
 compinit
-
 
 # use emacs bindings in terminal
 bindkey -e
@@ -44,6 +44,12 @@ zplug 'romkatv/powerlevel10k', as:theme, depth:1
 
 # colored man pages
 zplug "ael-code/zsh-colored-man-pages"
+
+# syntax highlighting
+zplug 'zdharma/fast-syntax-highlighting'
+
+# autosuggestions
+zplug 'zsh-users/zsh-autosuggestions'
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
