@@ -8,7 +8,6 @@
         create: true
     ~/.zshrc: zshrc
     ~/.config/nvim/init.vim: init.vim
-    ~/.vimrc: vimrc
     ~/.config/fish:
         path: fish/
         create: true
