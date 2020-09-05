@@ -4,13 +4,6 @@
 #  / /_ ___) |  _  |  _ <| |___
 # /____|____/|_| |_|_| \_\\____|
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # ~/.zshrc
 # Author: Griffin Brome (https://github.com/Griffin-Brome)
 
@@ -39,8 +32,6 @@ bindkey -e
 
 source ~/.zplug/init.zsh
 
-# P10k prompt theme
-zplug 'romkatv/powerlevel10k', as:theme, depth:1
 
 # colored man pages
 zplug "ael-code/zsh-colored-man-pages"
@@ -63,8 +54,6 @@ fi
 zplug load 
 
 # Plugin configuration
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # Make terminal play nice with tmux
 TERM="xterm-256color"
+

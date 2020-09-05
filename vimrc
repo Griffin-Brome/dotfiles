@@ -11,29 +11,13 @@
 " PLUGINS ============================================================
 
 " Ensure that Vim-Plug is installed 
-if has('unix')
-    if has('nvim')
-        if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-            silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-            autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-        endif
-    else " normal vim
-        if empty(glob('~/.vim/autoload/plug.vim'))
-            silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-                        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-            autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-        endif
-    endif
-elseif has('win32')
-    if empty(glob('$HOME/vimfiles/autoload/plug.vim'))
-        silent !iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-    ni $HOME/vimfiles/autoload/plug.vim -Force
-    endif
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin()
-
+call plug#begin('~/.vim/plugged')
 " Declare the list of plugins ---------------------------------------
 
 Plug 'preservim/nerdtree' " NERDTree directory browser
@@ -43,9 +27,12 @@ Plug 'vim-airline/vim-airline' " Vim-airline status line
 Plug 'vim-airline/vim-airline-themes' " & themes
 Plug 'ryanoasis/vim-devicons' " devicons for nerdtree
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
+Plug 'chriskempson/base16-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'altercation/vim-colors-solarized'
-Plug 'ctrlpvim/ctrlp.vim' " ctrlp fuzzy file search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'airblade/vim-gitgutter' " vim-gitgutter shows which lines have been changed, and integrates with airline nicely
 
 " List ends here. Plugins become visible to Vim after this call.
@@ -56,9 +43,8 @@ call plug#end()
 " ctrl+e toggles NERDTree
 map <silent> <C-e> :NERDTreeToggle<CR> 
 
-" ctrl+p invokes CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" ctrl+p invokes FZF
+map <silent> <C-p> :FZF<CR> 
 
 " Close vim if the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -225,7 +211,7 @@ if exists('+termguicolors')
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-colorscheme gruvbox
+colorscheme base16-default-dark
 set bg=dark
 
 " SPACES & TABS =====================================================
@@ -270,6 +256,8 @@ nnoremap <C-H> <C-W><C-H>
 
 " Allow mouse in all modes
 set mouse=a
+
+" REMAPS ===========================================================
 
 " USER FUNCTIONS ===================================================
 
