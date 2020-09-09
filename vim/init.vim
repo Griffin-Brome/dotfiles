@@ -1,12 +1,6 @@
-" __     _ ___ __  __ ____   ____
-" \ \   / |_ _|  \/  |  _ \ / ___|
-"  \ \ / / | || |\/| | |_) | |
-"   \ V /  | || |  | |  _ <| |___
-"    \_/  |___|_|  |_|_| \_\\____|
-
 " URL: github.com/Griffin-Brome/dotfiles
 " Authors: Griffin Brome
-" Description: My (neo)vim configuration
+" Description: My neovim configuration
  
 " PLUGINS ============================================================
 
@@ -20,37 +14,33 @@ endif
 call plug#begin('~/.vim/plugged')
 " Declare the list of plugins ---------------------------------------
 
-Plug 'preservim/nerdtree' " NERDTree directory browser
-Plug 'tpope/vim-sensible' " Sane defaults for vim
+Plug 'preservim/nerdtree' " directory browser
 Plug 'tpope/vim-fugitive' " Git wrapper
-Plug 'vim-airline/vim-airline' " Vim-airline status line 
-Plug 'vim-airline/vim-airline-themes' " & themes
+Plug 'vim-airline/vim-airline' " status line 
+Plug 'vim-airline/vim-airline-themes' 
 Plug 'ryanoasis/vim-devicons' " devicons for nerdtree
-Plug 'morhetz/gruvbox'
-Plug 'dracula/vim'
-Plug 'chriskempson/base16-vim'
-Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim' " colourscheme pack
+Plug 'dag/vim-fish' " fish syntax highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'airblade/vim-gitgutter' " vim-gitgutter shows which lines have been changed, and integrates with airline nicely
+Plug 'airblade/vim-gitgutter' " shows which lines have been changed since last commit
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 
-" REMAPS ===========================================================
-let mapleader=' ' " Remap leader to spacebar
-
 " AESTHETICS ========================================================
 
+" workaround for issue where colours did not show correctly while in tmux session
 " https://github.com/tmux/tmux/issues/1246
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
-colorscheme base16-default-dark
+
+" the most important setting
+colorscheme base16-gruvbox-dark-medium
 set bg=dark
 
 " SPACES & TABS =====================================================
@@ -59,6 +49,9 @@ set bg=dark
 set tabstop=4
 set shiftwidth=4
 set expandtab 
+
+" REMAPS ===========================================================
+let mapleader=' ' " Remap leader to spacebar
 
 " UI CONFIG =========================================================
 
@@ -76,12 +69,13 @@ set matchtime=0
 set splitbelow
 set splitright
 
-" Show horizontal line
+" Show which line I'm currently on
 set cursorline
 " SEARCH ===========================================================
 
-" Show search highlights as you search
+" Show search highlights as you type
 set hlsearch
+
 " Get rid of highlights from search
 nnoremap <leader>l :nohlsearch<CR>
 
@@ -96,10 +90,6 @@ nnoremap <C-H> <C-W><C-H>
 " Allow mouse in all modes
 set mouse=a
 
-" Buffer movement
-nnoremap <leader>n :bn<CR>  
-nnoremap <leader>p :bp<CR>
-nnoremap <Leader>b :buffers<CR>:buffer<Space>
 " USER FUNCTIONS ===================================================
 
 " PLUGIN-SPECIFIC CONFIGURATION ====================================
@@ -120,21 +110,13 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 " coc settings
-let g:coc_global_extensions = ['coc-python', 'coc-json', 'coc-css', 'coc-html']
-
+" ------------------------------------------------------------------------------
 " TextEdit might fail if hidden is not set.
-set hidden
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
+set hidden " hidden allows for opening a new buffer without saving the current buffer, even if it has unsaved changes
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
-
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -146,8 +128,6 @@ else
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -158,26 +138,21 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-" Use <c-space> to trigger completion.
+
+" Use <c-space> to open completion menu.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" Use <cr> (enter key) to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
 if exists('*complete_info')
   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -196,17 +171,14 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
+" Highlight the symbol and its references when cursored
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+nmap <F2> <Plug>(coc-rename)
 
 augroup mygroup
+  " Remove all vimrc autocommands
   autocmd!
   " Setup formatexpr specified filetype(s).
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')

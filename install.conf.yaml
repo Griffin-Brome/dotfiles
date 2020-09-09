@@ -6,8 +6,12 @@
     ~/bin:
         path: bin/
         create: true
-    ~/.zshrc: zshrc
-    ~/.config/nvim/init.vim: init.vim
+    ~/.config/nvim/init.vim: 
+        path: vim/init.vim
+        relink: true
     ~/.config/fish:
         path: fish/
+        create: true
+    ~/.config/alacritty/alacritty.yml:
+        path: alacritty.yml
         create: true
