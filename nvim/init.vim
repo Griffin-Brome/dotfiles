@@ -10,20 +10,26 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin(stdpath('data') . '/plugged')
-Plug 'morhetz/gruvbox'
+    Plug 'scrooloose/nerdtree' " This really should just be integrated into vim
 call plug#end()
 
-" the most important setting
-colorscheme gruvbox
-
+set background=dark
 set relativenumber
-set cursorline
+set number
 
 " allows for opening a new buffer without having to save the current one, even if it has changes 
 set hidden 
 
 " allows for language specific config (eg. python.vim)
-filetype plugin on
+filetype plugin indent on
+
+" Default tab values
+set tabstop=4
+set shiftwidth=4
+
+set smarttab
+set autoindent
+set expandtab
 
 " <leader> is spacebar
 let mapleader = " " 
@@ -40,3 +46,17 @@ nnoremap <C-h> <C-w>h
 " open splits like other editors
 set splitbelow
 set splitright
+
+" <esc> to exit terminal mode since <C-\><C-N> is dumb 
+tnoremap <Esc> <C-\><C-n>
+
+" Shortcut to edit init.vim
+command! Config :e $MYVIMRC
+
+" I like to use the mouse sometimes (gasp!)
+set mouse=a
+
+" VSCode like directory tree
+map <C-e> :NERDTreeToggle<CR>
+
+autocmd TermOpen * set nonumber norelativenumber 

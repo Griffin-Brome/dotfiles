@@ -129,11 +129,3 @@ export HISTSIZE=1000
 
 # Make vim default editor
 export EDITOR=vim
-# a e s t h e t i c s
-
-# check if starship is installed 
-if ! [ -e /usr/local/bin/starship ]; then
-    curl -fsSL https://starship.rs/install.sh | bash # install latest starship version
-fi
-eval "$(starship init bash)"
-export STARSHIP_CONFIG=~/.starship # move starship config file to $HOME
