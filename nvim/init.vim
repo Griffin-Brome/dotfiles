@@ -60,3 +60,5 @@ set mouse=a
 map <C-e> :NERDTreeToggle<CR>
 
 autocmd TermOpen * set nonumber norelativenumber 
+
+nnoremap Y y$
