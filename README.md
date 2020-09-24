@@ -1,4 +1,4 @@
-# dotfiles
+# Griffin's System Config
 
 ## Vim
 
