@@ -2,12 +2,11 @@
 # Authors: Griffin Brome
 # Description: My fish configuration
 
-alias reload="source $HOME/.config/fish/config.fish"
 set -x DOTFILES "$HOME/.dotfiles"
-set -x EDITOR "nvim"
+set -x EDITOR "vim"
+set -x VISUAL "vim"
 
-alias vim="nvim"
-
+alias vi="vim"
 
 function mcd -d "Create a directory and set CWD"
     command mkdir $argv
@@ -23,7 +22,7 @@ function mcd -d "Create a directory and set CWD"
 end
 
 
-function config
-    nvim "$DOTFILES/fish/config.fish"
+function config -d "Edit the fish config file with $EDITOR, then source it"
+    $EDITOR "$DOTFILES/fish/config.fish"
     source "$DOTFILES/fish/config.fish"
 end
