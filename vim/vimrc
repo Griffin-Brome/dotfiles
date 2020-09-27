@@ -15,9 +15,11 @@ set hlsearch
 set incsearch
 
 set background=dark
+set t_Co=256 " 256 colour terminal 
+set encoding=utf-8
 set relativenumber
 set number
-
+set laststatus=2 " Always show filename
 " allows for opening a new buffer without having to save the current one, even if it has changes 
 set hidden 
 
@@ -51,8 +53,11 @@ set splitright
 nnoremap <Leader>n :bn<Esc>
 nnoremap <Leader>p :bp<Esc>
 
-" Shortcut to edit init.vim
-command! Config :e $MYVIMRC
+" Shortcut to edit vimrc
+command! Config  execute ":e $MYVIMRC"
+
+" Reload vimrc
+command! Reload execute "source $MYVIMRC"
 
 " I like to use the mouse sometimes (gasp!)
 set mouse=a
