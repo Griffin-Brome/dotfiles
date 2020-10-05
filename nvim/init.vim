@@ -13,7 +13,6 @@ set nocompatible " It is currently the 21st century
 " Highlight search; start highlighting as I type
 set hlsearch
 set incsearch
-
 set background=dark
 set t_Co=256 " 256 colour terminal 
 set encoding=utf-8
