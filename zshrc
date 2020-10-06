@@ -8,7 +8,7 @@ export ZSH="/home/griffin/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -98,6 +98,3 @@ source /usr/local/share/chruby/auto.sh
 
 # Personal environment variables
 export DOTFILES="$HOME/.dotfiles" 
-
-# Activate nord dircolours
-test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
