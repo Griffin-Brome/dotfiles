@@ -102,3 +102,6 @@ export EDITOR="nvim"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vi="nvim"
+
+# Personal environment variables
+export DOTFILES="$HOME/.dotfiles" 
