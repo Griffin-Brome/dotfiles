@@ -8,20 +8,6 @@
 " URL: github.com/Griffin-Brome/dotfiles
 " Author: Griffin Brome
 
-" Plugin Stuff
-
-" Install vim-plug if not found
-if empty(glob('$HOME/.local/share/nvim/site/autoload/plug.vim'))
-  silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin(stdpath('data') . '/plugged')
-Plug 'altercation/vim-colors-solarized'
-call plug#end()
 
 set nocompatible " It is currently the 21st century
 
@@ -29,7 +15,6 @@ set nocompatible " It is currently the 21st century
 set hlsearch
 set incsearch
 set background=dark
-colorscheme solarized
 set t_Co=256 " 256 colour terminal 
 set encoding=utf-8
 set relativenumber
