@@ -1,8 +1,8 @@
-
-" __   _(_)_ __ ___  _ __ ___
-" \ \ / | | '_ ` _ \| '__/ __|
-"  \ V /| | | | | | | | | (__
-"   \_/ |_|_| |_| |_|_|  \___|
+" _       _ _         _
+"(_)_ __ (_| |___   _(_)_ __ ___
+"| | '_ \| | __\ \ / | | '_ ` _ \
+"| | | | | | |_ \ V /| | | | | | |
+"|_|_| |_|_|\__(_\_/ |_|_| |_| |_|
 
 
 " URL: github.com/Griffin-Brome/dotfiles
@@ -18,11 +18,11 @@ set background=dark
 set t_Co=256 " 256 colour terminal 
 set encoding=utf-8
 set relativenumber
-set number
+set number " show which line i'm currently on
 set laststatus=2 " Always show filename
 " allows for opening a new buffer without having to save the current one, even if it has changes 
 set hidden 
-
+set cursorline
 " allows for language specific config (eg. python.vim)
 filetype plugin indent on
 
@@ -33,6 +33,7 @@ set smarttab
 set autoindent
 set expandtab
 
+
 " <leader> is spacebar
 let mapleader = " " 
 
@@ -40,18 +41,22 @@ let mapleader = " "
 nnoremap <Leader>l :nohlsearch<Esc>
 
 " easier split movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
 
 " open splits like other editors
 set splitbelow
 set splitright
-
-" Easy buffer movement
-nnoremap <Leader>n :bn<Esc>
-nnoremap <Leader>p :bp<Esc>
 
 " Shortcut to edit vimrc
 command! Config  execute ":e $MYVIMRC"
@@ -62,6 +67,13 @@ command! Reload execute "source $MYVIMRC"
 " I like to use the mouse sometimes (gasp!)
 set mouse=a
 
+if has('nvim')
+    " Nvim specific terminal settings
+    tnoremap <Esc> <C-\><C-n>
+    autocmd TermOpen * setlocal nonumber norelativenumber
+endif
+
+" why Bram why??
 nnoremap Y y$
 
 set wildmenu
