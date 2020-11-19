@@ -1,3 +1,7 @@
 [user]
 	email = griffinbrome@gmail.com
 	name = Griffin Brome
+
+[alias]
+    co = checkout
+    st = status
