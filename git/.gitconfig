@@ -5,3 +5,6 @@
 [alias]
     co = checkout
     st = status
+    ci = commit
+    br = branch
+    pu = push origin HEAD
