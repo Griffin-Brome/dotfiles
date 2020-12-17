@@ -8,6 +8,15 @@
 " URL: github.com/Griffin-Brome/dotfiles
 " Author: Griffin Brome
 
+" Plugin stuff
+
+" Install plugin manager (vim-plug currently)
+
+if empty(glob('$HOME/.local/share/nvim/site/autoload/plug.vim'))
+  silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 
 set nocompatible " It is currently the 21st century
 
@@ -27,8 +36,7 @@ set cursorline
 filetype plugin indent on
 
 " Default tab values
-set tabstop=4
-set shiftwidth=4
+set softtabstop=-1 " Set to > 0 so that the value of shiftwidth is used instead
 set smarttab
 set autoindent
 set expandtab
