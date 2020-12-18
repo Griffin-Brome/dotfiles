@@ -11,11 +11,21 @@
 " Plugin stuff
 
 " Install plugin manager (vim-plug currently)
-
 if empty(glob('$HOME/.local/share/nvim/site/autoload/plug.vim'))
   silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin(stdpath('data') . '/plugged')
+
+" Make sure you use single quotes
+Plug 'arcticicestudio/nord-vim'
+
+" Initialize plugin system
+call plug#end()
 
 
 set nocompatible " It is currently the 21st century
@@ -24,6 +34,7 @@ set nocompatible " It is currently the 21st century
 set hlsearch
 set incsearch
 set background=dark
+colorscheme nord
 set t_Co=256 " 256 colour terminal 
 set encoding=utf-8
 set relativenumber
@@ -76,9 +87,9 @@ command! Reload execute "source $MYVIMRC"
 set mouse=a
 
 if has('nvim')
-    " Nvim specific terminal settings
-    tnoremap <Esc> <C-\><C-n>
-    autocmd TermOpen * setlocal nonumber norelativenumber
+  " Nvim specific terminal settings
+  tnoremap <Esc> <C-\><C-n>
+  autocmd TermOpen * setlocal nonumber norelativenumber
 endif
 
 " why Bram why??
