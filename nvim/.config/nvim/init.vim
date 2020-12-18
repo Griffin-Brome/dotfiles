@@ -8,13 +8,34 @@
 " URL: github.com/Griffin-Brome/dotfiles
 " Author: Griffin Brome
 
+" Plugin stuff
+
+" Install plugin manager (vim-plug currently)
+if empty(glob('$HOME/.local/share/nvim/site/autoload/plug.vim'))
+  silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin(stdpath('data') . '/plugged')
+
+" Make sure you use single quotes
+Plug 'arcticicestudio/nord-vim'
+
+" Initialize plugin system
+call plug#end()
+
 
 set nocompatible " It is currently the 21st century
 
 " Highlight search; start highlighting as I type
 set hlsearch
 set incsearch
+set cc=80
 set background=dark
+colorscheme nord
 set t_Co=256 " 256 colour terminal 
 set encoding=utf-8
 set relativenumber
@@ -27,8 +48,7 @@ set cursorline
 filetype plugin indent on
 
 " Default tab values
-set tabstop=4
-set shiftwidth=4
+set softtabstop=-1 " Set to > 0 so that the value of shiftwidth is used instead
 set smarttab
 set autoindent
 set expandtab
@@ -68,9 +88,9 @@ command! Reload execute "source $MYVIMRC"
 set mouse=a
 
 if has('nvim')
-    " Nvim specific terminal settings
-    tnoremap <Esc> <C-\><C-n>
-    autocmd TermOpen * setlocal nonumber norelativenumber
+  " Nvim specific terminal settings
+  tnoremap <Esc> <C-\><C-n>
+  autocmd TermOpen * setlocal nonumber norelativenumber
 endif
 
 " why Bram why??
