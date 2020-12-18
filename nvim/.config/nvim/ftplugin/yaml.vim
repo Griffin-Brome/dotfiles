@@ -1,2 +1,2 @@
-set tabstop=2
+setlocal cc=0
 set shiftwidth=2
