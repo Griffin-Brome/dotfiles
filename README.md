@@ -1,7 +1,5 @@
 # Griffin's System Config
 
-## Dotfiles for an Ubuntu Linux 20.04 LTS development workstation
-
 To install dependencies and config files:
 ```
 install.sh
