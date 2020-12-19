@@ -37,6 +37,8 @@ fi
 echo -e "\e[1mCreating symbolic links for config files (dotfiles)..\e[0m"
 stow nvim tmux git &>/dev/null
 
+ln --symbolic "$HOME/.dotfiles/bin" "$HOME"
+
 cat <<'EOF'
 
  ___           _        _ _       _   _             
