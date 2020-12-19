@@ -1,5 +1,3 @@
 # Griffin's System Config
 
-To copy this to your local machine, first ensure that GNU stow is installed.
-
-then run `stow $PROGRAM` for everything you want (zsh, nvim, etc...)
+Dotfiles for an Ubuntu Linux 20.04 LTS development workstation. To install dependencies and config files, run the `install.sh` script. To install my favorite theme, run the `nord-install.sh` script. Note that vim will look weird if you do not do this.
