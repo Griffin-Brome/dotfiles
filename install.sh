@@ -28,16 +28,18 @@ install nvim neovim
 install gnome-tweaks
 install stow
 
-# TODO find a better way to check this
-if $SHELL != "$(which zsh)"; then
+if [ $SHELL != "$(which zsh)" ]; then
   echo -e "\e[1mChanging default shell to zsh\e[0m"
   chsh -s "$(which zsh)"
 fi
 
 echo -e "\e[1mCreating symbolic links for config files (dotfiles)..\e[0m"
 stow nvim tmux git &>/dev/null
+echo -e "\e[1mDotfiles Linked\e[0m"
 
-ln --symbolic "$HOME/.dotfiles/bin" "$HOME"
+if [ ! -e $HOME/bin ]; then
+  ln --symbolic "$HOME/.dotfiles/bin" "$HOME"
+fi
 
 cat <<'EOF'
 
