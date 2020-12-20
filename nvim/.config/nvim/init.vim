@@ -39,8 +39,6 @@ set laststatus=2 " Always show filename
 " even if it has changes 
 set hidden 
 set cursorline
-" allows for language specific config (eg. python.vim)
-filetype plugin indent on
 
 " Default tab values
 set softtabstop=-1 " Set to > 0 so that the value of shiftwidth is used instead
@@ -81,12 +79,12 @@ if has('nvim')
 endif
 
 if ! has('nvim')
+  filetype plugin indent on
   set background=dark
   set encoding=utf-8
   set smarttab
   set wildmenu
   set nocompatible " It is currently the 21st century
-  " Highlight search; start highlighting as I type
-  set hlsearch
-  set incsearch
+  set hlsearch " Highlight search 
+  set incsearch" start highlighting as I type
 endif
