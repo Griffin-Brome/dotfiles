@@ -28,20 +28,15 @@ Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 
-set nocompatible " It is currently the 21st century
 
-" Highlight search; start highlighting as I type
-set hlsearch
-set incsearch
 set cc=80
-set background=dark
 colorscheme nord
 set t_Co=256 " 256 colour terminal 
-set encoding=utf-8
 set relativenumber
-set number " show which line i'm currently on
+set number 
 set laststatus=2 " Always show filename
-" allows for opening a new buffer without having to save the current one, even if it has changes 
+" allows for opening a new buffer without having to save the current one, 
+" even if it has changes 
 set hidden 
 set cursorline
 " allows for language specific config (eg. python.vim)
@@ -49,7 +44,6 @@ filetype plugin indent on
 
 " Default tab values
 set softtabstop=-1 " Set to > 0 so that the value of shiftwidth is used instead
-set smarttab
 set autoindent
 set expandtab
 
@@ -74,15 +68,8 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 
-" open splits like other editors
-set splitbelow
-set splitright
-
-" Shortcut to edit vimrc
-command! Config  execute ":e $MYVIMRC"
-
-" Reload vimrc
-command! Reload execute "source $MYVIMRC"
+" why Bram why??
+nnoremap Y y$
 
 " I like to use the mouse sometimes (gasp!)
 set mouse=a
@@ -93,7 +80,13 @@ if has('nvim')
   autocmd TermOpen * setlocal nonumber norelativenumber
 endif
 
-" why Bram why??
-nnoremap Y y$
-
-set wildmenu
+if ! has('nvim')
+  set background=dark
+  set encoding=utf-8
+  set smarttab
+  set wildmenu
+  set nocompatible " It is currently the 21st century
+  " Highlight search; start highlighting as I type
+  set hlsearch
+  set incsearch
+endif

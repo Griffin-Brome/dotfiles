@@ -35,6 +35,8 @@ alias la="ls -A"
 # Personal environment variables
 export DOTFILES="$HOME/.dotfiles" 
 export UNI="$HOME/Documents/university"
+export MANPAGER='nvim +Man' # Use neovim as pager for man pages
+export MANWIDTH=999 # Allows for soft wrapping when using nvim as a man pager
 
 
 # Load chruby
@@ -69,3 +71,4 @@ RPROMPT="%B%F{yellow} \$vcs_info_msg_0_%f%b"
 zstyle ':vcs_info:git:*' formats '%b'
 # Set up the prompt
 export PROMPT="%B%F{green}%n%f%b@%M %F{green}%1~%f %# "
+
