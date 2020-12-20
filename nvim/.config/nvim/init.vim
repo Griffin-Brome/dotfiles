@@ -86,5 +86,5 @@ if ! has('nvim')
   set wildmenu
   set nocompatible " It is currently the 21st century
   set hlsearch " Highlight search 
-  set incsearch" start highlighting as I type
+  set incsearch " start highlighting as I type
 endif
