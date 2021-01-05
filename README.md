@@ -1,5 +1,6 @@
 Griffin's System Config
 ===
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 
 Install using GNU Stow
 ---
