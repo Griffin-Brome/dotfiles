@@ -1,0 +1,5 @@
+# User environment variables
+export VISUAL="/usr/bin/nvim"
+export EDITOR="/usr/bin/nvim"
+export DOTFILES="$HOME/.dotfiles" 
+export UNI="$HOME/Documents/university"
