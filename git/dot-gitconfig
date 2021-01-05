@@ -1,0 +1,10 @@
+[user]
+	email = griffinbrome@gmail.com
+	name = Griffin Brome
+
+[alias]
+    co = checkout
+    st = status
+    ci = commit
+    br = branch
+    pu = push origin HEAD
