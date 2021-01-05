@@ -1,11 +1,8 @@
-# Griffin's System Config
+Griffin's System Config
+===
 
-To install dependencies and config files:
+Install using GNU Stow
+---
+```shell
+stow --dotfiles zsh tmux vim ...
 ```
-install.sh
-```
-To install my favorite theme:
-```
-nord-install.sh
-```  
-_Note: vim will look weird if you do not do this._
