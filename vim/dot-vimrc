@@ -1,0 +1,45 @@
+"        __
+" __  __/\_\    ___ ___   _ __  ___
+"/\ \/\ \/\ \ /' __` __`\/\`'_\/'___\
+"\ \ \_/ \ \ \/\ \/\ \/\ \ \ \/\ \__/
+" \ \___/ \ \_\ \_\ \_\ \_\ \_\ \____\
+"  \/__/   \/_/\/_/\/_/\/_/\/_/\/____/
+"
+" URL: github.com/Griffin-Brome/dotfiles
+" Author: Griffin Brome
+" Description: My (Neo)Vim config, feel free to copy ☺
+"
+" Note: Use :help <option> for any of these if you don't know what they do (or
+"       just google it)
+
+filetype plugin indent on
+
+let mapleader = " " 
+
+" Source: https://github.com/rsaihe
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l> 
+nnoremap Y y$
+
+" Enable true color 
+" Source: https://deductivelabs.com/blog/tech/using-true-color-vim-tmux/ 
+if has('termguicolors')
+  set termguicolors
+endif
+
+set background=dark
+set encoding=utf-8
+set smarttab
+set wildmenu
+set nocompatible 
+set hlsearch 
+set incsearch 
+set relativenumber
+set number 
+set laststatus=2 " Always show filename
+set hidden 
+set cursorline
+set softtabstop=-1 " Use shiftwidth to determine tab size
+set shiftwidth=2 " Indent by 2 spaces by default
+set autoindent
+set expandtab " Tabs instead of spaces
+set mouse=a
