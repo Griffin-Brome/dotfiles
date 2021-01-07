@@ -7,7 +7,7 @@
 "
 " URL: github.com/Griffin-Brome/dotfiles
 " Author: Griffin Brome
-" Description: My (Neo)Vim config, feel free to copy ☺
+" Description: My (Neo)Vim config, feel free to copy :) 
 "
 " Note: Use :help <option> for any of these if you don't know what they do (or
 "       just google it)
@@ -27,7 +27,7 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim' " Colourscheme pack
 
 " Initialize plugin system
 call plug#end()
@@ -38,15 +38,16 @@ let mapleader = " "
 
 " Source: https://github.com/rsaihe
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l> 
+
 nnoremap Y y$
 
-" Enable true color 
+" Enable true colour 
 " Source: https://deductivelabs.com/blog/tech/using-true-color-vim-tmux/ 
 if has('termguicolors')
   set termguicolors
 endif
 
-" Load shell's base16 colourscheme
+" Use shell's base16 colourscheme
 if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
