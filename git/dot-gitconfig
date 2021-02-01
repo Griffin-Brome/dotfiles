@@ -1,5 +1,5 @@
 [user]
-	email = griffinbrome@gmail.com
+	email = 26681097+Griffin-Brome@users.noreply.github.com
 	name = Griffin Brome
 
 [alias]
@@ -8,3 +8,5 @@
     ci = commit
     br = branch
     pu = push origin HEAD
+[init]
+	defaultbranch = main
