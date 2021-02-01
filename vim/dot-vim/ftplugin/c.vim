@@ -1,1 +1,1 @@
-set shiftwidth=4
+setlocal shiftwidth=8 colorcolumn=80

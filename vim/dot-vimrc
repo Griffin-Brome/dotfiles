@@ -63,9 +63,7 @@ set relativenumber
 set number 
 set laststatus=2 " Always show filename
 set hidden 
-set cursorline
 set softtabstop=-1 " Use shiftwidth to determine tab size
 set shiftwidth=2 " Indent by 2 spaces by default
 set autoindent
 set expandtab " Tabs instead of spaces
-set mouse=a
