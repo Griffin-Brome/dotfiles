@@ -1,3 +1,4 @@
+" vim: fdm=marker
 "        __
 " __  __/\_\    ___ ___   _ __  ___
 "/\ \/\ \/\ \ /' __` __`\/\`'_\/'___\
@@ -12,25 +13,24 @@
 " Note: Use :help <option> for any of these if you don't know what they do (or
 "       just google it)
 
-" Plugins
-" vim-plug boilerplate
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Plugin stuff {{{
+" Install plugin manager (vim-plug currently)
+
+if empty(glob('$HOME/.local/share/nvim/site/autoload/plug.vim'))
+  silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 
 " Make sure you use single quotes
-
-Plug 'chriskempson/base16-vim' " Colourscheme pack
-
+Plug 'tpope/vim-fugitive'
 " Initialize plugin system
 call plug#end()
+"}}}
 
 filetype plugin indent on
 
@@ -41,28 +41,18 @@ nnoremap <silent> <C-l> :nohlsearch<CR><C-l>
 
 nnoremap Y y$
 
-" Enable true colour 
-" Source: https://deductivelabs.com/blog/tech/using-true-color-vim-tmux/ 
+" Enable true colour https://deductivelabs.com/blog/tech/using-true-color-vim-tmux/ 
 if has('termguicolors')
   set termguicolors
 endif
 
-" Use shell's base16 colourscheme
-if filereadable(expand("~/.vimrc_background"))
-  source ~/.vimrc_background
-endif
-
-set background=dark
-set encoding=utf-8
+set noswapfile
 set smarttab
-set wildmenu
-set nocompatible 
 set hlsearch 
 set incsearch 
 set relativenumber
 set number 
 set laststatus=2 " Always show filename
-set hidden 
 set softtabstop=-1 " Use shiftwidth to determine tab size
 set shiftwidth=2 " Indent by 2 spaces by default
 set autoindent
