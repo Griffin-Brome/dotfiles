@@ -25,9 +25,8 @@ endif
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin(stdpath('data') . '/plugged')
-
+Plug 'arcticicestudio/nord-vim'
 " Make sure you use single quotes
-Plug 'tpope/vim-fugitive'
 " Initialize plugin system
 call plug#end()
 "}}}
@@ -45,6 +44,8 @@ nnoremap Y y$
 if has('termguicolors')
   set termguicolors
 endif
+
+colorscheme nord
 
 set noswapfile
 set smarttab
