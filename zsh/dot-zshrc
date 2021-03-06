@@ -53,7 +53,6 @@ RPROMPT="%B%F{yellow} \$vcs_info_msg_0_%f%b"
 export PROMPT="%B%F{green}%n%f%b@%M %F{green}%1~%f %# "
 
 # User Aliases
-alias v="$VISUAL"
 alias ls="ls --color=auto"
 alias la="ls --almost-all"
 
@@ -62,17 +61,3 @@ function zshrc {
     $VISUAL "$HOME/.zshrc"
     source "$HOME/.zshrc"
 }
-
-# Load chruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-
-# Base16 Shell
-if [ ! -e $HOME/.config/base16-shell ]; then
-  git clone https://github.com/chriskempson/base16-shell.git
-fi
-
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-  [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-    eval "$("$BASE16_SHELL/profile_helper.sh")"
