@@ -55,9 +55,12 @@ export PROMPT="%B%F{green}%n%f%b@%M %F{green}%1~%f %# "
 # User Aliases
 alias ls="ls --color=auto"
 alias la="ls --almost-all"
+alias c="clear"
 
 # User Functions/Commands
 function zshrc {
     $VISUAL "$HOME/.zshrc"
     source "$HOME/.zshrc"
 }
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
