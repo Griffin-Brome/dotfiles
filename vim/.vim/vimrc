@@ -27,7 +27,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'mhinz/vim-startify'
+Plug 'christoomey/vim-tmux-navigator'
 " Make sure you use single quotes
 " Initialize plugin system
 call plug#end()
@@ -44,8 +44,12 @@ let g:airline_powerline_fonts = 1
 
 nnoremap <leader>e :NERDTreeFocus<CR>
 nnoremap <C-e> :NERDTreeToggle<CR>
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 
 nnoremap Y y$
+
 
 set termguicolors
 
