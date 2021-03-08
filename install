@@ -2,37 +2,53 @@
 #
 # Installs a new dev environment
 
-echo "Performing system update"
+sudo apt-get update -q \ 
+  && sudo apt-get upgrade -yq \
+  && sudo apt-get autoremove -yq
 
-sudo apt-get update && sudo apt-get upgrade -yq && sudo apt-get autoremove -yq
+programs=(
+  zsh 
+  neovim 
+  stow 
+  python3 
+  tmux 
+  git 
+  gnome-tweak-tool
+  curl
+)
 
-echo "Installing programs"
-
-programs=( zsh vim stow python3 tmux git gnome-tweak-tool)
 for i in "${programs[@]}"; do 
 	sudo apt-get install -yq $i 
 done
 
-echo "Installing nord colour theme"
-
-git clone https://github.com/arcticicestudio/nord-gnome-terminal.git && \
-./nord-gnome-terminal/src/nord.sh && \
-rm -rf "./nord-gnome-terminal"
+if [ -d nord-gnome-terminal ]; then
+  rm -rf "./nord-gnome-terminal"
+fi
+git clone https://github.com/arcticicestudio/nord-gnome-terminal.git \
+  && ./nord-gnome-terminal/src/nord.sh \
+  && rm -rf "./nord-gnome-terminal"
 
 if [[ $SHELL != $(which zsh) ]]; then
 	echo "Changing shell to zsh"
 	chsh -s $(which zsh)
 fi
 
-echo "Linking config files"
+directories=( 
+  git 
+  vim 
+  nvim 
+  zsh 
+  tmux
+)
 
-directories=( git vim nvim zsh tmux)
 for i in "${directories[@]}"; do
 	stow --dotfiles $i
 done
 
+ln -s $PWD/bin $HOME/bin
 
-echo "Linking bin directory"
-ln -s ./bin $HOME/bin
-
-echo "System configured"
+cat << EOF
+############################
+# Installation Complete :) #
+############################
+EOF
