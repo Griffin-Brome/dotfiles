@@ -23,6 +23,11 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 call plug#begin('~/.vim/plugged')
 Plug 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mhinz/vim-startify'
 " Make sure you use single quotes
 " Initialize plugin system
 call plug#end()
@@ -32,12 +37,17 @@ filetype plugin indent on
 
 let mapleader = " " 
 
-" Source: https://github.com/rsaihe
+" https://github.com/rsaihe
 nnoremap <silent> <C-l> :nohlsearch<CR><C-l> 
+
+let g:airline_powerline_fonts = 1
+
+nnoremap <leader>e :NERDTreeFocus<CR>
+nnoremap <C-e> :NERDTreeToggle<CR>
 
 nnoremap Y y$
 
-set t_co=256
+set termguicolors
 
 colorscheme nord
 
