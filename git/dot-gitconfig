@@ -10,3 +10,6 @@
     pu = push origin HEAD
 [init]
 	defaultbranch = main
+	templatedir = ~/.git_template
+[core]
+	autocrlf = input
