@@ -46,6 +46,8 @@ for i in "${directories[@]}"; do
 done
 
 ln -s $PWD/bin $HOME/bin
+asdf
+
 
 cat << EOF
 ############################

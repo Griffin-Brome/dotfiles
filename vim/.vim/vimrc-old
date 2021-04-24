@@ -8,7 +8,7 @@
 "
 " Name: vimrc
 " Author: Griffin Brome
-" Description: My (Neo)Vim config, feel free to copy :) Use :help <option> for any of these if you don't know what they do (or just google it)
+" Description: My Vim config, feel free to copy :) Use :help <option> for any of these if you don't know what they do (or just google it)
 
 let g:polyglot_disabled = ['sensible']
 " Plugin stuff {{{
@@ -23,20 +23,21 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 call plug#begin('~/.vim/plugged')
-Plug 'airblade/vim-gitgutter'
 Plug 'arcticicestudio/nord-vim'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 " Make sure you use single quotes
 " Initialize plugin system
 call plug#end()
 "}}}
 
 filetype plugin indent on
+
+let mapleader = " " 
+
+" https://github.com/rsaihe
+nnoremap <silent> <C-l> :nohlsearch<CR><C-l> 
 
 
 nnoremap <leader>e :NERDTreeFocus<CR>
@@ -46,21 +47,20 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 
 nnoremap Y y$
-let g:airline_powerline_fonts = 1
 
 
-set t_co=256
+set termguicolors
 
 colorscheme nord
-set cursorline
 
-set path=.,** " Current dir and all children dirs
 set noswapfile
+set smarttab
 set hlsearch 
 set incsearch 
 set relativenumber
 set number 
 set laststatus=2 " Always show filename
 set softtabstop=-1 " Use shiftwidth to determine tab size
+set shiftwidth=2 " Indent by 2 spaces by default
 set autoindent
 set expandtab " Tabs instead of spaces
