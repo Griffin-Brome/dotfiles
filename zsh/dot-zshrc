@@ -1,12 +1,4 @@
-# TODO
-# Author:
-# URL:
-# DESC:
-
 setopt histignorealldups sharehistory
-
-# http://zsh.sourceforge.net/Guide/zshguide04.html
-bindkey -v # Hardcode vim bindings
 
 # Keep 1 000 000 000 lines of history within the shell and save it to ~/.zsh_history:
 HISTSIZE=1000000000
@@ -42,27 +34,14 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-######################
-# User configuration #
-######################
-
-
-RPROMPT="%B%F{yellow} \$vcs_info_msg_0_%f%b"
-# PROMPT=\$vcs_info_msg_0_'%# '
-# Set up the prompt
+export RPROMPT="%B%F{yellow} \$vcs_info_msg_0_%f%b"
 export PROMPT="%B%F{green}%n%f%b@%M %F{green}%1~%f %# "
 
 # User Aliases
 alias ls="ls --color=auto"
 alias la="ls --almost-all"
-alias c="clear"
+alias l="ls -lAh"
 
-# User Functions/Commands
-function zshrc {
-    $VISUAL "$HOME/.zshrc"
-    source "$HOME/.zshrc"
-}
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"

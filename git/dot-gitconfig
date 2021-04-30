@@ -3,11 +3,8 @@
 	name = Griffin Brome
 
 [alias]
-    co = checkout
-    st = status
-    ci = commit
-    br = branch
-    pu = push origin HEAD
+	pu = push origin HEAD
+
 [init]
 	defaultbranch = main
 	templatedir = ~/.git_template
