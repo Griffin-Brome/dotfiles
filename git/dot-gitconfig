@@ -10,3 +10,4 @@
 	templatedir = ~/.git_template
 [core]
 	autocrlf = input
+	excludesfile = /home/griffin/.gitignore_global
