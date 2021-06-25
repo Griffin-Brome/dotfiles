@@ -15,21 +15,22 @@ set noswapfile
 
 " Spaces instead of tabs
 set expandtab
+set softtabstop=-1 " Use shiftwidth number of spaces
 
 " -----------------------------------------------------------------------------
 " Search
 " -----------------------------------------------------------------------------
+set incsearch
 set hlsearch
+set ignorecase smartcase " Why isn't this just one option...
 set path=.,**
 set wildignore+=*/node_modules/*,*/.git/*
-
 
 " -----------------------------------------------------------------------------
 " UI
 " -----------------------------------------------------------------------------
 set number relativenumber
 set cursorline
+set showcmd
+set laststatus=2
 set background=dark " TODO fix HACK: Fix colors in tmux
-
-" Toggle project drawer
-nnoremap <silent> <C-e> :25Lexplore <CR>

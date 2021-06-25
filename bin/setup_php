@@ -1,0 +1,51 @@
+#! /usr/bin/env bash
+#
+# Installs php and composer, for laravel projects. 
+#
+# Author: Griffin Brome
+# Description: Composer is installed at the project level, and can be invoked 
+#              by "php bin/composer" from the project root.
+# Sources:
+#   1. https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
+
+set -euo pipefail
+
+sudo apt update --quiet && sudo apt upgrade --quiet --yes
+
+# Install php
+if ! command -v php &> /dev/null; then
+  sudo apt install --quiet --yes php
+fi
+
+# Install php extensions
+extensions=(
+  "curl"
+  "mbstring"
+  "dom"
+  "zip"
+  "mysql"
+)
+
+for extension in "${extensions[@]}"; do
+  sudo apt install --quiet --yes "php-$extension"
+done
+
+# [1]
+EXPECTED_CHECKSUM="$(php -r 'copy("https://composer.github.io/installer.sig", "php://stdout");')"
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+ACTUAL_CHECKSUM="$(php -r "echo hash_file('sha384', 'composer-setup.php');")"
+
+if [ "$EXPECTED_CHECKSUM" != "$ACTUAL_CHECKSUM" ]; then
+  >&2 echo 'ERROR: Invalid installer checksum'
+  rm composer-setup.php
+  exit 1
+fi
+
+if [ ! -d "bin" ];then
+  mkdir bin
+fi
+
+php composer-setup.php --install-dir=bin --filename=composer --quiet
+RESULT=$?
+rm composer-setup.php
+exit $RESULT
