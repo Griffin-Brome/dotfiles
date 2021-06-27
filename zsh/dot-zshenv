@@ -1,5 +1,0 @@
-# User environment variables
-export VISUAL="/usr/bin/vim"
-export EDITOR="/usr/bin/vim"
-export DOTFILES="$HOME/.dotfiles" 
-export UNI="$HOME/Documents/University"
