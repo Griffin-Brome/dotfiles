@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/griffin/Documents/CustomizableLearning_ALT2040/public/js/apps/quizzes/js'
+let g:netrw_dirhist_6='/home/griffin/Documents/CustomizableLearning_ALT2040/public/js/apps/quizzes'
+let g:netrw_dirhist_5='/home/griffin/Documents/CustomizableLearning_ALT2040/public/js/apps'
+let g:netrw_dirhist_4='/home/griffin/Documents/CustomizableLearning_ALT2040/public/js'
+let g:netrw_dirhist_3='/home/griffin/Documents/CustomizableLearning_ALT2040/public'
+let g:netrw_dirhist_2='/home/griffin/Documents/CustomizableLearning_ALT2040'
+let g:netrw_dirhist_1='/home/griffin/Documents/CustomizableLearning_ALT2040/quiz'
