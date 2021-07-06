@@ -2,3 +2,5 @@ set expandtab " Spaces instead of tabs
 set softtabstop=-1 " Use shiftwidth to determine number of spaces/tab
 set shiftwidth=4
 set autoindent " Always match indentation when opening a new line
+
+set hlsearch " Highlight search results
