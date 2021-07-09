@@ -4,3 +4,5 @@ set shiftwidth=4
 set autoindent " Always match indentation when opening a new line
 
 set hlsearch " Highlight search results
+
+set background=dark " Assume I'm using a dark terminal background
