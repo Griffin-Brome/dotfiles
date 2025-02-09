@@ -64,7 +64,6 @@ PROMPT='$(show_virtual_env)%F{3}%3~ ${vcs_info_msg_0_}%f$ '
 if [ -x "$(command -v pyenv)" ]; then
 	eval "$(pyenv init -)"
 fi
-command -v kubectl > /dev/null && source <(kubectl completion zsh)
 
 complete -o nospace -C /usr/bin/terraform terraform
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
