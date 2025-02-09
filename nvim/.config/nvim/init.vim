@@ -28,10 +28,6 @@ nnoremap <C-l> <C-w>l
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <C-p> :Files<Cr>
-nnoremap <C-g> :Git<Cr>
-nnoremap gb :Buffers<Cr>
-
 " Use ripgrep for searching files
 " ref: https://github.com/BurntSushi/ripgrep/issues/425#issuecomment-1299001166
 if executable('rg')
@@ -118,5 +114,14 @@ require("copilot").setup({
     }
   }
 })
-require'fzf-lua'.setup({'fzf-vim'})
+require('fzf-lua').setup{}
+-- ref: https://github.com/ibhagwan/fzf-lua/blob/60428a8dc931639ee5e88756b2d7bc896cdc20c7/scripts/init.lua
+vim.api.nvim_set_keymap("n", "<C-\\>", [[<Cmd>lua require"fzf-lua".buffers()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<C-Space>", [[<Cmd>lua require"fzf-lua".builtin()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<C-p>", [[<Cmd>lua require"fzf-lua".files()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<C-g>", [[<Cmd>lua require"fzf-lua".grep_project()<CR>]], {})
+vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>]], {})
+
+require("fzf-lua").utils.info(
+  "|<C-\\> buffers|<C-p> files|<C-g> grep|<C-Space> builtin|<F1> help|")
 EOF
