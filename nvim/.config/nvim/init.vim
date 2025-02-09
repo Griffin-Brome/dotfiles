@@ -115,4 +115,19 @@ vim.api.nvim_set_keymap("n", "<F1>", [[<Cmd>lua require"fzf-lua".help_tags()<CR>
 
 require("fzf-lua").utils.info(
   "|<C-\\> buffers|<C-p> files|<C-g> grep|<C-Space> builtin|<F1> help|")
+
+-- :help clipboard-osc52
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+
+
 EOF
