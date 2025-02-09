@@ -19,11 +19,10 @@ function tmux () {
     fi
 }
 
-# Ref: https://github.com/direnv/direnv/wiki/Python#zsh
-function show_virtual_env() {
-	if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
-		echo "($(basename $VIRTUAL_ENV)) "
-	fi
+show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename ${VIRTUAL_ENV_PROMPT:-venv})) "
+  fi
 }
 
 source_if_exists '/usr/share/doc/fzf/examples/key-bindings.zsh'
