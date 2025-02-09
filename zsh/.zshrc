@@ -61,11 +61,6 @@ zstyle ':vcs_info:*' enable git
 
 PROMPT='$(show_virtual_env)%F{3}%3~ ${vcs_info_msg_0_}%f$ '
 
-if [ -x "$(command -v pyenv)" ]; then
-	eval "$(pyenv init -)"
-fi
-
-complete -o nospace -C /usr/bin/terraform terraform
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias ls='ls --color=auto'
