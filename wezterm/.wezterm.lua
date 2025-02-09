@@ -15,5 +15,7 @@ if wezterm.target_triple == 'aarch64-apple-darwin' then
   config.send_composed_key_when_right_alt_is_pressed = false
 end
 
+config.audible_bell = "Disabled"
+
 -- and finally, return the configuration to wezterm
 return config
