@@ -73,7 +73,6 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
-Plug 'zbirenbaum/copilot.lua'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -106,14 +105,6 @@ require'nvim-treesitter.configs'.setup {
   highlight = { enable = true },
   indent = { enable = true }
 }
-require("copilot").setup({
-  suggestion = {
-    auto_trigger = true,
-    keymap = {
-      accept = "<C-o>"
-    }
-  }
-})
 require('fzf-lua').setup{}
 -- ref: https://github.com/ibhagwan/fzf-lua/blob/60428a8dc931639ee5e88756b2d7bc896cdc20c7/scripts/init.lua
 vim.api.nvim_set_keymap("n", "<C-\\>", [[<Cmd>lua require"fzf-lua".buffers()<CR>]], {})
