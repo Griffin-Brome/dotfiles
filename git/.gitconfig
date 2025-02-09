@@ -13,6 +13,7 @@
 	co = checkout
         pt = push --tags
 	rb = rebase
+	rbi = rebase --interactive
 [push]
 	autoSetupRemote = true
 [pull]
