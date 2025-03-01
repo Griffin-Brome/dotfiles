@@ -14,12 +14,15 @@
         pt = push --tags
 	rb = rebase
 	rbi = rebase --interactive
+	pf = push --force-with-lease
 [push]
 	autoSetupRemote = true
 [pull]
 	rebase = true
 [fetch]
 	prune = true
+	pruneTags = true
+	all = true
 
 [user]
 	email = 26681097+Griffin-Brome@users.noreply.github.com
@@ -29,3 +32,14 @@
 	autoStash = true
 [commit]
 	verbose = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
