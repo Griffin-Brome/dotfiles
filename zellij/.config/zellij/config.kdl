@@ -271,7 +271,7 @@ default_mode "locked"
 // Default: "default"
 // 
 // default_layout "welcome"
- 
+
 // The folder in which Zellij will look for layouts
 // (Requires restart)
 // 
