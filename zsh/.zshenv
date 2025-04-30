@@ -45,4 +45,5 @@ fi
 
 # Do this after local env, so that local env can modify PATH
 export PATH
-. "$HOME/.cargo/env"
+
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
