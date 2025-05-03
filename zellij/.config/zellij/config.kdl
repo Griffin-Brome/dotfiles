@@ -6,11 +6,6 @@ keybinds clear-defaults=true {
     locked {
         bind "Ctrl space" { SwitchToMode "normal"; }
     }
-    normal {
-        bind "?" { 
-            LaunchOrFocusPlugin "zellij-forgot" { floating true; }
-        }
-    }
     pane {
         bind "left" { MoveFocus "left"; }
         bind "down" { MoveFocus "down"; }
@@ -238,7 +233,6 @@ plugins {
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
     }
-    zellij-forgot location="https://github.com/karimould/zellij-forgot/releases/download/0.4.2/zellij_forgot.wasm"
 }
 
 // Plugins to load in the background when a new session starts
