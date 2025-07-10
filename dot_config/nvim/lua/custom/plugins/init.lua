@@ -8,16 +8,6 @@ return {
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   {
-    'Exafunction/windsurf.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'hrsh7th/nvim-cmp',
-    },
-    config = function()
-      require('codeium').setup {}
-    end,
-  },
-  {
     'folke/flash.nvim',
     event = 'VeryLazy',
     vscode = true,
