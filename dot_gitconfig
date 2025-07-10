@@ -15,6 +15,7 @@
 	rb = rebase
 	rbi = rebase --interactive
 	pf = push --force-with-lease
+	cb = choose-branch
 [push]
 	autoSetupRemote = true
 [pull]

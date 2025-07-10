@@ -1,0 +1,2 @@
+#! /usr/bin/env bash
+git checkout $(git branch | fzf --preview 'git show {1} --color=always')
