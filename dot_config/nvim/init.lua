@@ -733,7 +733,18 @@ require("lazy").setup({
             },
           },
         },
-        jedi_language_server = {},
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                pylint = { enabled = false },
+                pyflakes = { enabled = false },
+                pycodestyle = { enabled = false },
+                mccabe = { enabled = false },
+              }
+            }
+          }
+        },
         typos_lsp = {},
         ruff = {},
         terraformls = {},
