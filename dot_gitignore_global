@@ -21,3 +21,4 @@ tags
 [._]*.un~
 
 .envrc
+.DS_Store
