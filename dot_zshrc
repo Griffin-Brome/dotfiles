@@ -99,3 +99,5 @@ function zpipe () {
   fi
 }
 source_if_exists "$HOME/.zshrc.local"
+
+. "$HOME/.local/share/../bin/env"

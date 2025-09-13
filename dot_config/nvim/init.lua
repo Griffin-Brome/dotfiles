@@ -420,7 +420,10 @@ require("lazy").setup({
         --
         defaults = {
           mappings = {
-            i = { ["<esc>"] = actions.close },
+            i = {
+              ["<esc>"] = actions.close,
+              ['<c-d>'] = actions.delete_buffer
+            },
           },
         },
         -- pickers = {}
