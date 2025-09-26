@@ -42,6 +42,10 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-theme = catppuccin-mocha
+theme = Catppuccin Mocha
 command = /usr/bin/zsh
 shell-integration-features = no-cursor
+font-size = 10
+
+# Map CTRL-[ to ESC 
+keybind = ctrl+left_bracket=text:\x1b
