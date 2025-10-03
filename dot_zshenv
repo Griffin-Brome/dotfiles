@@ -9,9 +9,9 @@ fpath=(
 	$fpath
 )
 
-if [ -x "$(command -v nvim)" ]; then
-	export VISUAL='nvim'
-	export EDITOR='nvim'
+if [ -x "$(command -v hx)" ]; then
+	export VISUAL='hx'
+	export EDITOR='hx'
 else;
 	export VISUAL='vi'
 	export EDITOR='vi'
