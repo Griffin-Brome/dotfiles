@@ -204,7 +204,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-gaps inner 2
+gaps inner 4px
+gaps outer 2px
+
+default_border pixel 1px
+default_floating_border pixel 1px
 
 # Include configs from 3 locations:
 #  - /usr/share/sway/config.d
