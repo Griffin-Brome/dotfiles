@@ -7,7 +7,7 @@
 ### Variables
 #
 # Use Mod1 for Alt. Use Mod4 for Super
-set $mod Mod1
+set $mod Mod4
 # Home row direction keys, like vim
 set $left h
 set $down j
