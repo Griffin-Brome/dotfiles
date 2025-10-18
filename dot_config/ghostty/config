@@ -43,7 +43,7 @@
 # resize-overlay-duration = 4s 200ms
 
 theme = Catppuccin Mocha
-command = /usr/bin/zsh
+command = "command -v zellij >/dev/null && zellij -l welcome || $SHELL"
 shell-integration-features = no-cursor
 font-size = 10
 

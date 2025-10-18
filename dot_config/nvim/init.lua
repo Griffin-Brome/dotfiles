@@ -422,7 +422,7 @@ require("lazy").setup({
           mappings = {
             i = {
               ["<esc>"] = actions.close,
-              ['<c-d>'] = actions.delete_buffer
+              ['<c-d>'] = actions.delete_buffer + actions.move_to_top
             },
           },
         },

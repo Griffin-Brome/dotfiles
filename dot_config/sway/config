@@ -204,8 +204,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-gaps inner 4px
-gaps outer 2px
+gaps inner 2px
+gaps outer 1px
+smart_gaps on
 
 default_border pixel 1px
 default_floating_border pixel 1px

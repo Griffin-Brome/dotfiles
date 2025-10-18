@@ -11,20 +11,6 @@ function source_if_exists() {
     fi
 }
 
-function tmux () {
-    if [ "$#" -eq 0 ]; then
-        command tat
-    else;
-        command tmux "$@"
-    fi
-}
-
-show_virtual_env() {
-  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
-    echo "($(basename ${VIRTUAL_ENV_PROMPT:-venv})) "
-  fi
-}
-
 source_if_exists '/usr/share/doc/fzf/examples/key-bindings.zsh'
 source_if_exists '/usr/share/doc/fzf/examples/completion.zsh'
 source_if_exists "$HOME/.cargo/env"
@@ -63,10 +49,6 @@ PROMPT='$(show_virtual_env)%F{3}%3~ ${vcs_info_msg_0_}%f$ '
 
 alias ls='ls --color=auto'
 alias k='kubectl'
-if [ -x "$(command -v nvim)" ]; then
-	alias vi="nvim"
-fi
-alias zj='zellij'
 
 # Integrations
 if [ -x "$(command -v direnv)" ]; then
@@ -85,6 +67,14 @@ if [ -x "$(command -v starship)" ]; then
     eval "$(starship init zsh)"
 fi
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
 function zr () { zellij run --name "$*" -- zsh -ic "$*";}
 function zrf () { zellij run --name "$*" --floating -- zsh -ic "$*";}
 function zri () { zellij run --name "$*" --in-place -- zsh -ic "$*";}
@@ -99,19 +89,9 @@ function zpipe () {
   fi
 }
 
+if id "linuxbrew" >/dev/null 2>&1; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
-}
+
 source_if_exists "$HOME/.zshrc.local"
-
-. "$HOME/.local/share/../bin/env"
-
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
