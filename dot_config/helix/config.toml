@@ -5,3 +5,15 @@ line-number = "relative"
 
 [keys.normal]
 C-p = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
+
+# Holdovers from vim
+"C-]" = "goto_definition"
+
+# Better movement
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+
+# More ergonomic than alt-.
+"C-." = "repeat_last_motion"
