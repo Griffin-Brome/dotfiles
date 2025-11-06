@@ -93,5 +93,8 @@ if id "linuxbrew" >/dev/null 2>&1; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+export EDITOR=hx
+export VISUAL=hx
+
 
 source_if_exists "$HOME/.zshrc.local"

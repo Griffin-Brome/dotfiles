@@ -161,7 +161,7 @@ keybinds clear-defaults=true {
         bind "Alt Shift ]" { NextSwapLayout; }
         bind "Alt [" { GoToPreviousTab; }
         bind "Alt ]" { GoToNextTab; }
-        bind "Alt p" { ToggleFloatingPanes; }
+        bind "Alt Shift f" { ToggleFloatingPanes; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt Shift i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }

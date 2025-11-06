@@ -3,13 +3,19 @@ theme = "catppuccin_mocha"
 [editor]
 line-number = "relative"
 
-[keys.normal]
-C-p = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
 
+[editor.indent-guides]
+render = true
+
+[editor.whitespace.render]
+tab = "all"
+
+
+[keys.normal]
 # Holdovers from vim
 "C-]" = "goto_definition"
 
-# Better movement
+# Better buffer movement
 C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
@@ -17,3 +23,11 @@ C-l = "jump_view_right"
 
 # More ergonomic than alt-.
 "C-." = "repeat_last_motion"
+
+H = "goto_line_start"
+L = "goto_line_end"
+
+# Open Yazi in Zellij pane, but allow opening files in the existing Helix
+# instance
+# Ref: https://yazi-rs.github.io/docs/tips#helix-with-zellij
+C-y = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
