@@ -3,13 +3,11 @@ theme = "catppuccin_mocha"
 [editor]
 line-number = "relative"
 
-
 [editor.indent-guides]
 render = true
 
 [editor.whitespace.render]
 tab = "all"
-
 
 [keys.normal]
 # Holdovers from vim
@@ -21,9 +19,10 @@ C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
 
-# More ergonomic than alt-.
-"C-." = "repeat_last_motion"
+H = "goto_line_start"
+L = "goto_line_end"
 
+[keys.select]
 H = "goto_line_start"
 L = "goto_line_end"
 

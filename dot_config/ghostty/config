@@ -43,9 +43,9 @@
 # resize-overlay-duration = 4s 200ms
 
 theme = Catppuccin Mocha
-command = "command -v zellij >/dev/null && zellij -l welcome || $SHELL"
 shell-integration-features = no-cursor
-font-size = 10
+font-size = 13
+font-family = Iosevka
 
 # Map CTRL-[ to ESC 
 keybind = ctrl+left_bracket=text:\x1b
