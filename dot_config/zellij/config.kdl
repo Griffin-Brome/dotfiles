@@ -157,21 +157,55 @@ keybinds clear-defaults=true {
         bind "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt =" { Resize "Increase"; }
-        bind "Alt Shift [" { PreviousSwapLayout; }
-        bind "Alt Shift ]" { NextSwapLayout; }
-        bind "Alt [" { GoToPreviousTab; }
-        bind "Alt ]" { GoToNextTab; }
+
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
+
         bind "Alt Shift f" { ToggleFloatingPanes; }
+
+        // z for zoom
+        bind "Alt z" { ToggleFocusFullscreen; TogglePaneFrames; }
+
         bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt Shift i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt m" { NewPane; }
-        bind "Alt Shift o" { MoveTab "right"; }
-        bind "Alt Shift p" { TogglePaneInGroup; }
-        bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Alt Shift m" { NewTab; }
+        bind "Alt t" { NewTab; }
+
+        // Below are stolen from yazelix
+
+        // Previously: Alt + i (in helix: shrink_selection)
+        unbind "Alt i"
+        // Move tab left (new)
+        bind "Alt Shift H" { MoveTab "Left"; }
+
+        // Previously: Alt + o (in helix: expand_selection)
+        unbind "Alt o"
+        // Move tab right (new)
+        bind "Alt Shift L" { MoveTab "Right"; }
+
+        // Previously: Alt + n (in helix: select_next_sibling)
+        bind "Alt m" { NewPane; }
+        unbind "Alt n"
+
+        // Previously: Ctrl + b (in helix: move_page_up)
+        // Alt+number: Go directly to tab 1-9 (tmux style)
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt 7" { GoToTab 7; }
+        bind "Alt 8" { GoToTab 8; }
+        bind "Alt 9" { GoToTab 9; }
+
+
+        // Alt+q/w: Walk (focus) left/right between tabs
+        bind "Alt q" { GoToPreviousTab; }
+        bind "Alt w" { GoToNextTab; }
+        
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }
