@@ -158,8 +158,8 @@ keybinds clear-defaults=true {
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt =" { Resize "Increase"; }
 
-        bind "Alt [" { PreviousSwapLayout; }
-        bind "Alt ]" { NextSwapLayout; }
+        bind "Alt Shift [" { PreviousSwapLayout; }
+        bind "Alt Shift ]" { NextSwapLayout; }
 
         bind "Alt Shift f" { ToggleFloatingPanes; }
 
@@ -202,9 +202,8 @@ keybinds clear-defaults=true {
         bind "Alt 9" { GoToTab 9; }
 
 
-        // Alt+q/w: Walk (focus) left/right between tabs
-        bind "Alt q" { GoToPreviousTab; }
-        bind "Alt w" { GoToNextTab; }
+        bind "Alt [" { GoToPreviousTab; }
+        bind "Alt ]" { GoToNextTab; }
         
     }
     shared_except "locked" "renametab" "renamepane" {
