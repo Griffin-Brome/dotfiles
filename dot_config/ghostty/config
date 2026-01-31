@@ -50,8 +50,19 @@ copy-on-select = clipboard
 # Map CTRL-[ to ESC 
 keybind = ctrl+left_bracket=text:\x1b
 
-focus-follows-mouse = true
+keybind = ctrl+a>n=new_tab
+keybind = ctrl+a>\=new_split:right
+keybind = ctrl+a>-=new_split:down
 
+keybind = ctrl+a>z=toggle_split_zoom
+
+keybind = ctrl+a>space=toggle_command_palette
+
+# Movement
+keybind = alt+h=goto_split:left
+keybind = alt+j=goto_split:down
+keybind = alt+k=goto_split:up
+keybind = alt+l=goto_split:right
 
 # This is per terminal, and specified in bytes.
 scrollback-limit = 512000000
