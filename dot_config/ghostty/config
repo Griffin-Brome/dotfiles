@@ -51,6 +51,7 @@ copy-on-select = clipboard
 keybind = ctrl+left_bracket=text:\x1b
 
 keybind = ctrl+a>n=new_tab
+keybind = ctrl+a>x=close_tab
 keybind = ctrl+a>\=new_split:right
 keybind = ctrl+a>-=new_split:down
 

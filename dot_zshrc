@@ -96,5 +96,21 @@ fi
 export EDITOR=hx
 export VISUAL=hx
 
+function _osc7_emit() {
+  local host=${SSH_CONNECTION:+$HOST}
+  host=${host:-localhost}
+  printf '\e]7;file://%s%s\e\\' "$host" "$PWD"
+}
+
+
+# chpwd is a hook called when the directory is changed
+chpwd() {
+  _osc7_emit
+}
 
 source_if_exists "$HOME/.zshrc.local"
+
+# ChatGPT says this needs to be set in order for new ghostty tabs
+# to work (in the GUI). Couldn't find anything to verify it, but
+# it seems to do the trick.
+_osc7_emit
