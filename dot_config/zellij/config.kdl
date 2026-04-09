@@ -2,40 +2,6 @@ keybinds clear-defaults=true {
     locked {
         bind "Ctrl ;" { SwitchToMode "normal"; }
     }
-    shared_among "normal" "locked" {
-        // Pane navigation
-        bind "Alt h" { MoveFocus "Left"; }
-        bind "Alt l" { MoveFocus "Right"; }
-        bind "Alt k" { MoveFocus "Up"; }
-        bind "Alt j" { MoveFocus "Down"; }
-
-        // New / close pane
-        bind "Alt n" { NewPane; }
-        bind "Alt w" { CloseFocus; }
-
-        // Fullscreen / zoom
-        bind "Alt z" { ToggleFocusFullscreen; }
-
-        // Floating panes
-        bind "Alt ]" { ToggleFloatingPanes; }
-
-        // Tabs
-        bind "Alt t" { NewTab; }
-        bind "Alt ," { GoToPreviousTab; }
-        bind "Alt ." { GoToNextTab; }
-        bind "Alt Shift ," { MoveTab "Left"; }
-        bind "Alt Shift ." { MoveTab "Right"; }
-
-        // Detach
-        bind "Alt d" { Detach; }
-
-        // Misc.
-        bind "Alt n" { NewPane; }
-        bind "Alt p" { TogglePaneInGroup; }
-        bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Alt Shift [" { PreviousSwapLayout; }
-        bind "Alt Shift ]" { NextSwapLayout; }
-    }
     pane {
         bind "left" { MoveFocus "left"; }
         bind "down" { MoveFocus "down"; }
@@ -178,6 +144,27 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
     }
+    shared_among "normal" "locked" {
+        bind "Alt left" { MoveFocusOrTab "left"; }
+        bind "Alt down" { MoveFocus "down"; }
+        bind "Alt up" { MoveFocus "up"; }
+        bind "Alt right" { MoveFocusOrTab "right"; }
+        bind "Alt +" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
+        bind "Alt =" { Resize "Increase"; }
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
+        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt h" { MoveFocusOrTab "left"; }
+        bind "Alt i" { MoveTab "left"; }
+        bind "Alt j" { MoveFocus "down"; }
+        bind "Alt k" { MoveFocus "up"; }
+        bind "Alt l" { MoveFocusOrTab "right"; }
+        bind "Alt n" { NewPane; }
+        bind "Alt o" { MoveTab "right"; }
+        bind "Alt p" { TogglePaneInGroup; }
+        bind "Alt Shift p" { ToggleGroupMarking; }
+    }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl ;" { SwitchToMode "locked"; }
         bind "Ctrl q" { Quit; }
@@ -201,7 +188,7 @@ keybinds clear-defaults=true {
         bind "p" { SwitchToMode "pane"; }
     }
     shared_among "normal" "resize" "search" "move" "prompt" "tmux" {
-        bind "[" { SwitchToMode "scroll"; }
+        bind "s" { SwitchToMode "scroll"; }
     }
     shared_except "locked" "resize" "pane" "tab" "entersearch" "renametab" "renamepane" {
         bind "r" { SwitchToMode "resize"; }
@@ -350,8 +337,8 @@ pane_frames false
 // Valid values: positive integers
 // Default value: 10000
 // 
-scroll_buffer_size  50000 
-
+// scroll_buffer_size 10000
+ 
 // Provide a command to execute when copying text. The text will be piped to
 // the stdin of the program to perform the copy. This can be used with
 // terminal emulators which do not support the OSC 52 ANSI control sequence
@@ -420,7 +407,7 @@ scroll_buffer_size  50000
 // defaults to the scrollback size. If this number is higher than the scrollback size, it will
 // also default to the scrollback size. This does nothing if `serialize_pane_viewport` is not true.
 // 
-// scrollback_lines_to_serialize 10000
+scrollback_lines_to_serialize 50000
  
 // Enable or disable the rendering of styled and colored underlines (undercurl).
 // May need to be disabled for certain unsupported terminals
@@ -500,7 +487,7 @@ scroll_buffer_size  50000
 // Whether to show tips on startup
 // Default: true
 // 
-show_startup_tips false
+// show_startup_tips false
  
 // Whether to show release notes on first version run
 // Default: true
