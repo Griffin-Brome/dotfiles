@@ -1,4 +1,4 @@
-theme = "catppuccin_mocha"
+theme = "gruvbox"
 
 [editor]
 line-number = "relative"
@@ -28,11 +28,18 @@ C-l = "jump_view_right"
 H = "goto_line_start"
 L = "goto_line_end"
 
+# https://yazi-rs.github.io/docs/tips#helix
+C-y = [
+	':sh rm -f /tmp/unique-ca1ea106',
+	':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-ca1ea106',
+	':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+	':open %sh{cat /tmp/unique-ca1ea106}',
+	':redraw',
+	':set mouse false',
+  ':set mouse true',
+]
+
 [keys.select]
 H = "goto_line_start"
 L = "goto_line_end"
 
-# Open Yazi in Zellij pane, but allow opening files in the existing Helix
-# instance
-# Ref: https://yazi-rs.github.io/docs/tips#helix-with-zellij
-C-y = ":sh zellij run -n Yazi -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- bash ~/.config/helix/yazi-picker.sh open %{buffer_name}"
