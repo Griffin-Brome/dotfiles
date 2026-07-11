@@ -20,7 +20,7 @@ binds {
     Mod+Y hotkey-overlay-title="Browse Wallpapers" {
         spawn "dms" "ipc" "call" "dankdash" "wallpaper";
     }
-    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
+    Mod+T hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty" "--window-decoration=none"; }
 
     // Security
     Mod+Alt+L hotkey-overlay-title="Lock Screen" {
