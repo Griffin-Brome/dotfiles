@@ -1,13 +1,13 @@
-theme = "gruvbox"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"
-mouse = false
+mouse = true
 end-of-line-diagnostics = "hint"
+scroll-lines = 1
 
 [editor.inline-diagnostics]
 cursor-line = "warning" # show warnings and errors on the cursorline inline
-
 
 [editor.indent-guides]
 render = true
@@ -19,27 +19,11 @@ tab = "all"
 # Holdovers from vim
 "C-]" = "goto_definition"
 
+# Print the current line's git blame information to the statusline.
+space.B = ":echo %sh{git blame -L %{cursor_line},+1 %{buffer_name}}"
+
 # Better buffer movement
 C-h = "jump_view_left"
 C-j = "jump_view_down"
 C-k = "jump_view_up"
 C-l = "jump_view_right"
-
-H = "goto_line_start"
-L = "goto_line_end"
-
-# https://yazi-rs.github.io/docs/tips#helix
-C-y = [
-	':sh rm -f /tmp/unique-ca1ea106',
-	':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-ca1ea106',
-	':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
-	':open %sh{cat /tmp/unique-ca1ea106}',
-	':redraw',
-	':set mouse false',
-  ':set mouse true',
-]
-
-[keys.select]
-H = "goto_line_start"
-L = "goto_line_end"
-
